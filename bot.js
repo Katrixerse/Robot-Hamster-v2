@@ -21,8 +21,8 @@ handleSlashcommands(bot);
 
 // Webhooks
 //const errorLogs = new WebhookClient({
-//    id: "1065258865404428298",
-//    token: "MLEvvzzADx5oBYGf34KT7DPkpPal37CU4zA1PHPlu34zBNmAMMvbRARgdPniAYmdHP73",
+//    id: "",
+//    token: "",
 //});
 
 process.on('unhandledRejection', error => {
