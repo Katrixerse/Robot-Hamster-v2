@@ -1,0 +1,56 @@
+{% load static %}
+
+<div class="mx-3 d-flex flex-column">
+    <span class="fs-5 text-gray">This feature allows you to create <span class="text-orange">your own custom commands</span> </span>
+    <br>
+    <img src="{% static 'main/placeholders_cc.png' %}" class=" rounded mt-2 image-example" alt="" style="width: 35rem; height: 30rem;">
+    <br>
+    <div class="text-warning fs-5 mt-2">In the image above, you can see the placeholders you can use in the output of your custom command.</div>
+    <div class="cc-moretext">For example, if you were to create a custom command with the name <span class="text-orange">hello</span> and set the output to <span class="text-orange">This is a command in %GUILDNAME%</span>, the bot would send "This is a command in YourGuild'sName"</div>
+    <img src="{% static 'main/cc_example.png' %}" class=" rounded mt-2 image-example" alt="" style="width: 35rem; height: 12rem;">
+    <form action="#" method="post" class="my-5">
+        {% csrf_token %}
+        <div class="fs-4 text-white mb-3 text-center">Add a custom command</div>
+        <div class="d-flex justify-content-center align-items-center gap-5 flex-wrap flex-column">
+            <div class="input-group justify-content-center" style="width: fit-content !important;">
+                <span class="input-group-text" id="basic-addon1">Command Name</span>
+                {{ form.name }}
+                {% if form.name.errors %}
+                {% for error in form.name.errors %}
+                <div class="text-danger mt-1 text-center" style="width: 100%;">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="input-group justify-content-center" style="width: fit-content !important;">
+                <span class="input-group-text" id="basic-addon1">Command Output</span>
+                {{ form.output }}
+                {% if form.output.errors %}
+                {% for error in form.output.errors %}
+                <div class="text-danger mt-1 text-center" style="width: 100%;">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-warning">Add</button>
+        </div>
+    </form>
+    <div class="current-cc">
+        <div class="text-white fs-4 text-center mt-3">Current Commands</div>
+        <div class="mt-2 d-flex justify-content-center gap-4 flex-wrap">
+            {% for row in rows %}
+            <div class="text-white p-2 text-center d-flex flex-column" style="background-color: #0e121b; min-width: 10rem;">
+                <a class="align-self-end text-white px-1 py-0 btn btn-danger" style="text-decoration: none;" href="{% url 'delete_cc' row.1 %}">x</a>
+                <div>
+                    <span class="text-orange" style="text-shadow: .5px .5px 6px orange; color: #F0803C;">Name</span> <br>
+                    {{row.1}} <br>
+                    <span class="text-orange" style="text-shadow: .5px .5px 6px orange; color: #F0803C;">Output</span> <br>
+                    {{row.2}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

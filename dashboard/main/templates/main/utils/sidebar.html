@@ -1,0 +1,70 @@
+{% load bootstrap_icons %}
+{% load static %}
+    <div class="d-flex sidebar justify-content-start gap-5 align-items-center flex-column">
+        <div class="d-flex flex-column align-items-center mt-5">
+            <div class="sidebar-icon">
+                <img src="{% static 'main/paws.png' %}" alt="LOGO" class="paws">
+            </div>
+            <div class="text-center text-white fs-6 mt-2">
+                <span class="text-orange">Hammy</span>
+                <br>
+                <span>Dashboard</span>
+            </div>
+        </div>
+        {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}">
+            <div class="d-flex flex-column align-items-center">
+                <div class="sidebar-icon">
+                    {% bs_icon 'person-fill-add' size='2.5em' color='#f57417' %}
+                    <span class="tooltip-text">Choose a guild!</span>
+                </div>
+                <div class="text-center text-white fs-6 mt-2">
+                    Login
+                </div>
+            </div>
+        </a>
+        {% elif avatar %}
+        <div class="d-flex flex-column align-items-center">
+            <div>
+                <img src="{{ avatar }}" alt="LOGO" class="avatar">
+            </div>
+            <div class="text-center text-white fs-6 mt-2">
+                {{ username }}
+            </div>
+        </div>
+        <a href="{% url 'logout' %}">
+            <div class="d-flex flex-column align-items-center">
+                <div class="sidebar-icon">
+                    {% bs_icon 'person-dash' size='2.5em' color='#f57417' %}
+                    <span class="tooltip-text text-small">Logout of account</span>
+                </div>
+                <div class="text-center text-white fs-6 mt-2">
+                    Logout
+                </div>
+            </div>
+        </a>
+        {% else %}
+        {% endif %}
+        <a href="https://discordapp.com/api/oauth2/authorize?client_id=491699193585467393&permissions=277495540982&scope=bot%20applications.commands">
+            <div class="d-flex flex-column align-items-center">
+                <div class="sidebar-icon">
+                    {% bs_icon 'plus-lg' size='2.5em' color='#f57417' %}
+                    <span class="tooltip-text">Start now!</span>
+                </div>
+                <div class="text-center text-white fs-6 mt-2">
+                    Invite me!
+                </div>
+            </div>
+        </a>
+        <a href="{% url 'cmd_search' %}">
+            <div class="d-flex flex-column align-items-center">
+                <div class="sidebar-icon">
+                    {% bs_icon 'search' size='2.5em' color='#f57417' %}
+                    <span class="tooltip-text text-small">Search for a command</span>
+                </div>
+                <div class="text-center text-white fs-6 mt-2">
+                    Command Search
+                </div>
+            </div>
+        </a>
+    </div>

@@ -1,0 +1,88 @@
+{% load static %}
+
+<div class="mx-3 d-flex flex-column">
+    <span class="display-6">Welcome Messages</span>
+    <br>
+    <span class="fs-5 text-gray">Welcome messages is a feature that makes it so whenever a user joins your server, the bot will send a
+    message to a channel you can set, welcoming the user.</span>
+    <img src="{% static 'main/example_welcome.png' %}" class=" rounded mt-2 image-example" alt="" style="width: 35rem; height: 10rem;">
+    <br>
+    <span class="text-warning fs-5 mt-2">In the image above, a new user just joined. The bot sends a message welcoming them.</span>
+</div>
+<form action="#" method="post" class="my-5">
+    {% csrf_token %}
+    <div class="d-flex justify-content-around align-items-center flex-column gap-3">
+        <div class="form-check form-switch">
+            <span>Welcome messages</span>
+            {{ form.welcomeMessageEnabled }}
+        </div>
+        <div class="input-group justify-content-center text-center">
+            <span class="input-group-text" id="basic-addon1">Welcome message</span>
+            {{ form.welcomeMessage }}
+            {% if form.welcomeMessage.errors %}
+            {% for error in form.welcomeMessage.errors %}
+            <div class="text-danger mt-1" style="width: 100%;">
+                <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="input-group justify-content-center text-center">
+            <span class="input-group-text" id="basic-addon1">Welcome channel</span>
+            {{ form.welcomeChannel }}
+            {% if form.welcomeChannel.errors %}
+            {% for error in form.welcomeChannel.errors %}
+            <div class="text-danger mt-1" style="width: 100%;">
+                <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-warning">Change</button>
+    </div>
+</form>
+<div class="mx-3">
+    <span class="display-6">Placeholders</span>
+    <br>
+    <span class="fs-5 text-gray">If you want to spice up your welcome or leave messages, you can use placeholders.</span>
+    <span class="fs-5 text-gray">To put it simply, placeholders are bits of text that will get replaced with specific information when a user joins or leaves.</span>
+    <img src="{% static 'main/placeholders.png' %}" class="rounded mt-2 image-example" alt="" style="width: 35rem; height: 10rem;">
+    <div class="fs-5 text-gray my-3">So as an example, if you were to set the output to: <span class="text-danger">Hey %NAME%, thanks for using this command in %CHANNELNAME%, channel of %GUILDNAME%.</span>
+        <br> the bot would convert that into: <span class="text-danger">Hey {{username}}, thanks for using this command in #general, channel of Robot Hamster.</span></div>
+</div>
+<div class="mx-3">
+    <span class="display-6">Backgrounds</span>
+    <br>
+    <span class="fs-5 text-gray">In case you don't like how plain text looks, you can make it so the welcome message is an image.</span>
+    <img src="{% static 'main/example_welcome_img.png' %}" class="rounded mt-2 image-example" alt="" style="width: 35rem; height: 12rem;">
+    <br>
+    <span class="text-warning fs-5 mt-2">In the image above, a new user just joined. The bot sends an image welcoming them.</span>
+    <form action="#" method="post" class="my-5">
+        {% csrf_token %}
+        <div class="d-flex gap-5 justify-content-center align-items-end">
+            <div>
+                <span>Welcome message style</span>
+                {{ form.style }}
+                {% if form.style.errors %}
+                {% for error in form.style.errors %}
+                <div class="text-danger mt-1">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div>
+                <span>Welcome background image</span>
+                {{ form.background }}
+                {% if form.background.errors %}
+                {% for error in form.background.errors %}
+                <div class="text-danger mt-1">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-warning">Change</button>
+        </div>
+    </form>
+</div>

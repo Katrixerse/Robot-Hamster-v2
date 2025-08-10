@@ -1,0 +1,57 @@
+{% load bootstrap_icons %}
+{% load static %}
+
+<div class="sidebar-mobile justify-content-center rounded text-white">
+    <div class="p-3 justify-content-between d-flex">
+        <div class="text-center">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="text-white" style="text-decoration: none;">{% bs_icon 'person-dash-fill' size='1.5em' color='#E8ECF5' %} Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="text-white" style="text-decoration: none;">{% bs_icon 'person-fill' size='1.5em' color='#E8ECF5' %} Login</a>
+            {% endif %}
+        </div>
+        <div>
+            {% if avatar %}
+            <div class="d-flex align-content-center justify-content-center">
+                <img src="{{ avatar }}" alt="LOGO" class="avatar" style="width: 4em; height: 4em;">
+            </div>
+            <div class="text-center text-white fs-6 mt-2">
+                {{ username }}
+            </div>  
+            {% else %}
+                <div class="d-flex align-content-center justify-content-center">
+                    <img src="{% static 'main/unknown.png' %}" alt="LOGO" class="avatar" style="width: 4em; height: 4em;">
+                </div>
+                <div class="text-center text-white fs-6 mt-2">
+                    Not logged in
+                </div>  
+            {% endif %}
+        </div>
+        <small class="text-center">
+            <a href="{% url 'cmd_search' %}" class="text-white" style="text-decoration: none;">{% bs_icon 'search' size='1.5em' color='#E8ECF5' %}
+                <br>
+               Command Search</a>
+        </small>
+    </div>
+</div>
+
+<div class="nav-mobile rounded text-white align-items-center flex-column">
+    <div class="nav-mobile-item" id="general_info">
+        <span>General Info {% bs_icon 'chevron-down' size='1em' color='#E8ECF5' %}</span>
+        <div class="d-flex flex-column nav-mobile-dropdown-items">
+            {% include "../items/general_info_items.html" %}
+        </div>
+    </div>
+    <div class="nav-mobile-item" id='server_management'>
+        <span>Server Management {% bs_icon 'chevron-down' size='1em' color='#E8ECF5' %}</span>
+        <div class="d-flex flex-column nav-mobile-dropdown-items d-none">
+        {% include "../items/server_management_items.html" %}
+        </div>
+    </div>
+    <div class="nav-mobile-item" id="special_features">
+        <span class="text-orange">Special Features {% bs_icon 'chevron-down' size='1em' color='#E8ECF5' %}</span>
+        <div class="d-flex flex-column nav-mobile-dropdown-items d-none">
+        {% include "../items/special_features_items.html" %}
+        </div>
+    </div>
+</div>

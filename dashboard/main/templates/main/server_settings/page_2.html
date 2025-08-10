@@ -1,0 +1,36 @@
+{% load static %}
+
+<div class="mx-3 d-flex flex-column">
+    <span class="display-6">Modlogs</span>
+    <span class="fs-5 text-gray">Modlogs or moderator-logs is a feature that sends information about the
+        moderators' actions in the guild.</span>
+    <span class="display-6 mt-4">Modlogs Channel</span>
+    <span class="fs-5 text-gray">This is the channel where the bot will send the information mentioned
+        above.</span>
+    <img src="{% static 'main/example_ml.png' %}" class="rounded mt-2 image-example" alt="" style="width: 35rem; height: 20rem;">
+    <small class="text-info mt-3">In the image above, the bot is sending information that a user has been warned.
+    </small>
+</div>
+<form action="#" method="post" class="mt-5">
+    {% csrf_token %}
+    <div class="d-flex gap-5 align-items-center justify-content-center">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">Modlogs channel</span>
+            {{ form.modlogsChannel }}
+        </div>
+        <div class="d-flex text-center form-check form-switch">
+            {{ form.modlogs }}
+            <span>Modlogs enabled</span>
+        </div>
+        <button type="submit" class="btn btn-warning">Change</button>
+    </div>
+    {% if form.errors %}
+    {% for field in form %}
+    {% for error in field.errors %}
+    <div class="text-danger mt-1">
+        <strong>{{ error|escape }}</strong>
+    </div>
+    {% endfor %}
+    {% endfor %}
+    {% endif %}
+</form>

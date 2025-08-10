@@ -1,0 +1,100 @@
+@media only screen and (min-width: 1950px) {
+    .showcase {
+        width: 85rem;
+    }
+}
+
+@media only screen and (min-width: 2010px) {
+    .showcase {
+        width: 95rem;
+    }
+}
+
+@media only screen and (min-width: 2200px) {
+    .showcase {
+        width: 120rem;
+    }
+}
+
+@media only screen and (min-width: 2700px) {
+    .showcase {
+        width: 300rem;
+    }
+}
+
+/*MOBILE*/
+
+@media only screen and (max-width: 900px) {
+    .rightbar, .sidebar div, .sidebar a, .otherbar div, .custom-chat div, table, .cur_roles h1,
+    .settings-inner .text-gray, .settings-inner img, .settings-inner .text-info, .settings-inner .text-orange,
+    .settings-inner .text-warning {
+        display: none !important;
+    }
+    .sidebar {
+        width: 0;
+    }
+    .showcase {
+        min-width: 50vw;
+    }
+    .current-guild {
+        min-width: 50%;
+    }
+    .bot-info {
+        width: 85%;
+        font-size: .8rem;
+    }
+    .topbar span {
+        font-size: .9rem !important;
+    }
+    .nav-mobile, .sidebar-mobile {
+        display: flex !important;
+    }
+
+    /* FOR DASHBOARD SETTINGS */
+    .showcase {
+        width: 100% !important;
+    }
+    .settings {
+        min-width: 50%;
+        text-align: center;
+    }
+    .settings-inner {
+        width: 100%;
+        min-width: 90%;
+        text-align: center;
+    }
+    form div.d-flex {
+        flex-direction: column !important;
+    }
+    .form-switch {
+        padding: 0 !important;
+    }
+    .input-group-text, .input-group {
+        word-wrap: break-word !important;
+        font-size: .7rem !important;
+    }
+    .form-check span {
+        display: block;
+    }
+    div.form-check.form-switch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    div.mx-3 span.display-6 {
+        display: none;
+    }
+    .cc-moretext {
+        display: none;
+    }
+    .current-cc {
+        display: none;
+    }
+    .profile-preview {
+        display: none;
+    }
+    input.profile-img-checkbox + label {
+        width: 7rem;
+        height: 7rem;
+    }
+}

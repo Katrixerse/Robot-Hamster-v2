@@ -1,0 +1,137 @@
+.settings {
+    background-color: #202938;
+    opacity: 90%;
+    min-width: fit-content;
+    margin: 2rem;
+}
+
+.settings-inner {
+    background-color: #111828;
+    padding: 1rem;
+    width: fit-content;
+}
+
+.example-image {
+    width: 50rem;
+    height: 15rem;
+}
+
+.page-number {
+    padding: .5rem;
+    text-decoration: none;
+}
+
+.page-number-current {
+    background-color: #111828;
+}
+
+.form-dark {
+    background-color: #1B253E;
+    padding-left: 1rem;
+    color: white;
+    border: 2px solid #121826 !important;
+    border-radius: 10px;
+}
+
+.form-check-input {
+    margin-right: 1em !important;
+}
+
+.input-group-text {
+    background-color: #0e121b !important;
+    color: white !important;
+    border: none !important;
+}
+
+.input-group {
+    width: auto !important;
+}
+
+.form-select {
+    background-color: #1B253E !important;
+    padding-left: 1rem !important;
+    color: white !important;
+    border: 2px solid #121826 !important;
+    border-radius: 10px !important;
+}
+
+.image-example {
+    border-radius: 10px;
+    box-shadow: 0 0 0 8px rgba(11, 15, 25, 1);
+}
+
+.categories-card {
+    background-color: #070A11;
+    padding: 2rem;
+    text-align: center;
+}
+
+.levelbar-outer {
+    background-color: black;
+    width: 100%;
+    height: 1rem;
+    border-radius: 10px;
+}
+
+.levelbar-inner {
+    background-color: white;
+    width: 75%;
+    height: .4rem;
+    border-radius: 10px;
+}
+
+.profile-img-checkbox {
+    display: none;
+}
+
+input#background_default+label {
+    background-image: url("../default.png");
+}
+
+input#background_samurai+label {
+    background-image: url("../samurai.png");
+}
+
+input#background_binary+label {
+    background-image: url("../binary.png");
+}
+
+input#background_leafs+label {
+    background-image: url("../leafs.png");
+}
+
+input#background_blossom+label {
+    background-image: url("../blossom.png");
+}
+
+input#background_eclipse+label {
+    background-image: url("../eclipse.png");
+}
+
+input#background_fade+label {
+    background-image: url("../fade.png");
+}
+
+input#background_neon+label {
+    background-image: url("../neon.png");
+}
+
+input#background_space+label {
+    background-image: url("../space.png");
+}
+
+input.profile-img-checkbox+label {
+    height: 15rem;
+    width: 15rem;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+input.profile-img-checkbox:hover+label {
+    opacity: .5;
+}
+
+input.profile-img-checkbox:checked+label {
+    opacity: .2;
+}

@@ -1,0 +1,14 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+    Robot Hamster
+{% endblock title %}
+
+{% block content %}
+    <div class="d-flex">
+        {% include '../utils/sidebar.html' %}
+        {% include '../utils/navbar.html' %}
+        {% include '../utils/showcase.html' %}
+        {% include '../utils/rightbar.html' %}
+    </div>
+{% endblock content %}

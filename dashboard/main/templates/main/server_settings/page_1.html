@@ -1,0 +1,29 @@
+{% load static %}
+
+<div class="mx-3 d-flex flex-column">
+    <span class="display-6">Prefix</span>
+    <br>
+    <span class="fs-5 text-gray">The prefix is the sequence of characters that come before a command.</span>
+    <img src="{% static 'main/example_ping.png' %}" class="rounded mt-2 image-example" alt="" style="width: 30rem; height: 16rem;">
+    <br>
+    <small class="text-info mt-3">In the image above, the prefix is <strong class="fw-bold">r!</strong></small>
+</div>
+<form action="#" method="post" class="mt-5">
+    {% csrf_token %}
+    <div class="d-flex gap-5">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">New prefix</span>
+            {{ form.prefix }}
+        </div>
+        <button type="submit" class="btn btn-warning">Change</button>
+    </div>
+    {% if form.errors %}
+    {% for field in form %}
+    {% for error in field.errors %}
+    <div class="text-danger mt-1">
+        <strong>{{ error|escape }}</strong>
+    </div>
+    {% endfor %}
+    {% endfor %}
+    {% endif %}
+</form>

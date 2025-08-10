@@ -1,0 +1,21 @@
+{% extends '../layouts/dashboard_settings_base.html' %}
+
+{% block settings_content %}
+<div class="text-white settings">
+    <span class="display-5">Main Settings</span>
+    <div class="settings-inner rounded">
+        {% if page == 1 or page > 4 %}
+        {% include './page_1.html' %}
+        {% elif page == 2 %}
+        {% include './page_2.html' %}
+        {% elif page == 3 %}
+        {% include './page_3.html' %}
+        {% endif %}
+    </div>
+    <div class="text-center mt-3">
+        <a href="{% url 'server_settings' 1 %}" class="page-number text-gray">1</a>
+        <a href="{% url 'server_settings' 2 %}" class="page-number text-gray">2</a>
+        <a href="{% url 'server_settings' 3 %}" class="page-number text-gray">3</a>
+    </div>
+</div>
+{% endblock settings_content %}

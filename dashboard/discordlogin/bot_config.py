@@ -1,0 +1,6 @@
+TOKEN = ""
+CLIENT_ID = "Your Client ID"
+CLIENT_SECRET = ""
+REDIRECT_URL = "https://discord.com/api/oauth2/authorize?client_id=Your_Client_ID&redirect_uri=YourRedirectURL%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20guilds"
+REDIRECT_URI = "yourwebsite.com/oauth2/login/redirect"
+REDIRECT_URI_MODMAIL = "yourwebsite.com/oauth2/modmail/redirect"

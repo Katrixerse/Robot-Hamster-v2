@@ -1,0 +1,18 @@
+{% extends '../layouts/dashboard_settings_base.html' %}
+
+{% block settings_content %}
+<div class="text-white settings">
+    <span class="display-5">Welcome & Leave Messages</span>
+    <div class="settings-inner rounded">
+        {% if page == 1 or page > 3 %}
+        {% include './page_1.html' %}
+        {% elif page == 2 %}
+        {% include './page_2.html' %}
+        {% endif %}
+            <div class="text-center mt-3">
+                <a href="{% url 'server_mwl' 1 %}" class="page-number text-gray">1</a>
+                <a href="{% url 'server_mwl' 2 %}" class="page-number text-gray">2</a>
+            </div>
+        </div>
+</div>
+{% endblock settings_content %}

@@ -1,0 +1,11 @@
+{% extends '../layouts/dashboard_settings_base.html' %}
+
+{% block settings_content %}
+<div class="text-white settings">
+    <div class="settings-inner rounded d-flex flex-column align-items-center">
+        {% if page == 1 or page > 1 %}
+        {% include './page_1.html' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock settings_content %}

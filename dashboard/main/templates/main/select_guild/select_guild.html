@@ -1,0 +1,81 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+Robot Hamster
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+<div class="d-flex">
+    {% include '../utils/sidebar.html' %}
+    {% include '../utils/navbar.html' %}
+    <div class="showcase d-flex flex-column justify-content-between">
+        <div class="d-flex flex-column">
+            <div class="topbar text-white text-center d-flex justify-content-start align-items-center">
+                <span class="fs-4 fw-bold mx-3"># Home Page</span>
+                <div class="separator"></div>
+                <span class="fs-6 fw-bold mx-3 text-muted">The main page of the dashboard</span>
+            </div>
+            {% if messages %}
+            <div class="messages d-flex flex-column">
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="select-guild rounded-4 text-white align-self-center">
+            {% if guilds|length > 0 %}
+            <div>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="d-flex text-center align-items-center justify-content-between">
+                        {{ form }}
+                        <input type="submit" value="Search" class="btn btn-success mx-2">
+                    </div>
+                </form>
+                <div class="d-flex flex-column align-items-center">
+                    <div class="mt-4 d-flex flex-wrap justify-content-between align-items-center">
+                        {% for g in guilds|slice:":5" %}
+                        <div class="d-flex flex-column justify-content-center text-center align-items-center mx-2">
+                            {% if not 'None' in g.icon %}
+                            <a href="{% url 'set_guild' g.g_id %}">
+                                <img class="img rounded-circle guild-icon" src="{{g.icon}}" />
+                            </a>
+                            {% else %}
+                            <a href="{% url 'set_guild' g.g_id %}">
+                                <img class="img rounded-circle guild-icon" src="{% static 'main/unknown.png' %}" />
+                            </a>
+                            {% endif %}
+                            <span class="text-wrap text-small">{{g.name}}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% if guilds|length > 5 %}
+                    <small class="mt-4 text-warning">! WARNING: More than 5 guilds detected, however only the first 5
+                        will get displayed. To find others, use the search bar !</small>
+                    {% endif %}
+                    {% if searched_for %}
+                    <a class="btn btn-success mt-4" href="{% url 'select_guild' %}">Back to all guilds</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% elif guilds|length == 0 and not searched_for %}
+            <h1>No guilds found</h1>
+            {% elif guilds|length == 0 and searched_for %}
+            <h4>No guilds found with that name.</h4>
+            <a href="{% url 'select_guild' %}">
+                <h5 class="text-muted">Try another search term</h5>
+            </a>
+            {% endif %}
+        </div>
+        <div>
+        </div>
+    </div>
+    {% include '../utils/rightbar.html' %}
+</div>
+{% endblock content %}

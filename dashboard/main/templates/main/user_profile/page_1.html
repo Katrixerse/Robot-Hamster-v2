@@ -1,0 +1,72 @@
+{% load static %}
+
+<div class="mx-3 d-flex flex-column">
+    <span class="fs-5 text-gray">This is where you can customize your profile. Don't forget that in order to be able to use <span class="text-orange">r!profile</span> command you have to enable leveling with <span class="text-orange">r!manageleveling</span></span>
+    <br>
+    <div class="profile-preview">
+        <div class="fs-4 mt-2">This is roughly how your profile is going to look</div>
+        <div class="user-profile p-3 mt-3" style="width: 50%; background-image: url(../../../static/main/{{profile.background}}.png); background-repeat: no-repeat; background-position: center; background-size: cover;">
+            <div class="d-flex p-3 gap-5 fs-5" style="background-color: {{profile.background_color}}7F; width: 100%; color: {{profile.color}}">
+                <img src="{{avatar}}" alt="" class="rounded-circle">
+                <div class="d-flex flex-column justify-content-between">
+                    <div class="d-flex justify-content-between">
+                        <span>{{username}}</span>
+                        <span>#1</span>
+                    </div>
+                    <div class="d-flex flex-column justify-content-between">
+                        <div class="d-flex justify-content-between">
+                            <small>Level: 171</small>
+                            &nbsp;&nbsp;
+                            <small>4550/5000</small>
+                        </div>
+                        <div class="levelbar-outer d-flex justify-content-start align-items-center px-1">
+                            <div class="levelbar-inner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="#" method="post" class="my-5">
+        {% csrf_token %}
+        <div class="fs-5">Text Color {{form.textColor}}</div>
+        <div class="fs-5 mt-4">Background Color {{form.bckgColor}}</div>
+        <div class="fs-5 mt-4">Background Image</div>
+        <small>(Please only select one)</small>
+        <div class="d-flex justify-content-around align-items-center gap-5 flex-wrap mt-2">
+            <div>
+                {{ form.background_default }}
+                <label for="background_default"></label>
+            </div>
+            <div>
+                {{ form.background_samurai }}
+                <label for="background_samurai"></label>
+            </div>
+            <div>
+                {{ form.background_binary }}
+                <label for="background_binary"></label>
+            </div>
+            <div>
+                {{ form.background_leafs }}
+                <label for="background_leafs"></label>
+            </div>
+            <div>
+                {{ form.background_fade }}
+                <label for="background_fade"></label>
+            </div>
+            <div>
+                {{ form.background_space }}
+                <label for="background_space"></label>
+            </div>
+            <div>
+                {{ form.background_eclipse }}
+                <label for="background_eclipse"></label>
+            </div>
+            <div>
+                {{ form.background_neon }}
+                <label for="background_neon"></label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-warning mt-4">Save Changes</button>
+    </form>
+</div>

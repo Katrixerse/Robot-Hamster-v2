@@ -1,0 +1,53 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+Robot Hamster
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+<div class="d-flex">
+    {% include '../utils/sidebar.html' %}
+    {% include '../utils/navbar.html' %}
+    {% if not show_right_bar %}
+    <div class="showcase d-flex flex-column" style="width: 80%">
+    {% else %}
+    <div class="showcase d-flex flex-column">
+    {% endif %}
+        <div class="d-flex flex-column">
+            <div class="topbar text-white text-center d-flex justify-content-start align-items-center">
+                {% if head_title %}
+                <span class="fs-4 fw-bold mx-3"># {{head_title}}</span>
+                {% else %}
+                <span class="fs-4 fw-bold mx-3"># Server Settings</span>
+                {% endif %}
+                <div class="separator"></div>
+                {% if head_description %}
+                <span class="fs-6 fw-bold mx-3 text-muted">{{head_description}}</span>
+                {% else%}
+                <span class="fs-6 fw-bold mx-3 text-muted">You are now editing the settings of your server!</span>
+                {% endif %}
+            </div>
+            {% if messages %}
+            <div class="messages d-flex flex-column">
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% include '../utils/mobile/nav_mobile.html' %}
+        <div class="settings">
+            {% block settings_content %}
+
+            {% endblock %}
+        </div>
+    </div>
+    {% if show_right_bar %}
+    {% include '../utils/rightbar.html' %}
+    {% endif %}
+{% endblock content %}

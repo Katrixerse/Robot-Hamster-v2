@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.sidebar a,
+.select-guild a,
+.select-guild h5,
+.otherbar .bar-link,
+.otherbar-inner div a,
+.nav-mobile-dropdown-items a {
+    text-decoration: none;
+}
+
+.logo-text:hover {
+    opacity: 0.5;
+    color: gray;
+}
+
+.bar-link:hover {
+    cursor: pointer;
+    text-shadow: .5px .5px 6px orange;
+    color: #F0803C;
+}
+
+.text-orange {
+    color: #f57417;
+}
+
+.text-gray {
+    color: #9ca6aa;
+}
+
+.text-small {
+    font-size: .95rem;
+}
+
+.text-smaller {
+    font-size: .90rem;
+}
+
+.fs-6 {
+    font-size: .98rem;
+}
+
+.sidebar {
+    width: 8%;
+    min-height: 100vh;
+    background-color: #111828;
+}
+
+.sidebar-icon {
+    background-color: #212936;
+    width: fit-content;
+    padding: 1.5rem;
+    border-radius: 45%;
+    transition: border-radius .5s, background-color .5s;
+
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    left: 120%;
+    top: 17px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+
+    transition: opacity 1s;
+}
+
+.sidebar-icon:hover .tooltip-text {
+    opacity: 100%;
+    visibility: visible;
+}
+
+.sidebar-icon:hover {
+    border-radius: 10%;
+    background-color: #323a48;
+}
+
+.paws {
+    width: 40px;
+    height: 40px;
+}
+
+.avatar {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 45%;
+}
+
+.logo {
+    width: 4rem;
+    height: 4rem;
+}
+
+
+
+/* OTHERBAR */
+
+.otherbar {
+    min-height: 100vh;
+    width: fit-content;
+    background-color: #202938;
+}
+
+
+/* SHOWCASE */
+
+.showcase {
+    min-height: 100vh;
+    min-width: 80rem;
+    background-color: #384152;
+}
+
+.topbar {
+    width: 100%;
+    height: 4rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #111828;
+}
+
+.separator {
+    border-left: 2px solid #344055;
+    height: 2rem;
+}
+
+.messages {
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+.custom-chat {
+    padding: 5rem;
+}
+
+.chat {
+    background-color: #202938;
+    opacity: 80%;
+    border-radius: 10px;
+    width: 100%;
+    height: 5rem;
+    margin-top: 1rem;
+}
+
+.avatar-chat {
+    border-radius: 50%;
+    padding: .4rem;
+    width: 5rem;
+}
+
+.sidebar-mobile {
+    background-color: #202938;
+    margin: 2rem 1rem 0 1rem;
+    display: none !important;
+}
+
+.nav-mobile {
+    background-color: #202938;
+    margin: 2rem 1rem 0 1rem;
+    display: none !important;
+}
+
+.nav-mobile-item {
+    background-color: #111828;
+    width: 100%;
+    margin: .5rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.select-guild {
+    background-color: #202938;
+    padding: 3rem;
+    margin: 4rem;
+    width: fit-content;
+}
+
+.guild-icon {
+    width: 6rem;
+    height: 6rem;
+}
+
+.guild-icon:hover {
+    border: green 3px solid;
+    opacity: 0.5;
+}
+
+.current-guild {
+    background-color: #202938;
+    min-width: 40rem;
+    min-height: 20rem;
+    opacity: 80%;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 5rem;
+}
+
+.cur-guild-icon {
+    width: 10rem;
+    height: 10rem;
+}
+
+.cur-guild-top {
+    background-color: #111828;
+    padding: .2rem;
+}
+
+.bot-info {
+    width: 45rem;
+    height: 10rem;
+    background-color: #202938;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.cmds-container {
+    background-color: #111828;
+    box-shadow: 0 0 0 8px rgba(11, 15, 25, .4);
+    width: 60rem;
+    height: fit-content;
+    min-height: 35rem;
+    padding: 3rem;
+}
+
+.cmd {
+    background-color: #0c1019;
+    min-width: 100%;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.cmd-info {
+    height: 10rem;
+    background-color: #0c1019;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.cmd:hover {
+    opacity: .5;
+}
+
+.autocomplete {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type=text] {
+    background-color: #1B253E;
+    color: white;
+    border: 2px solid #121826 !important;
+    border-radius: 10px;
+    width: 100%
+}
+
+.autocomplete-items {
+    border: 1px solid #121826;
+    border-bottom: none;
+    border-top: none;
+    width: 100%;
+    overflow: scroll;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #1B253E;
+    border: 1px solid #121826;
+}
+
+.autocomplete-items div:hover {
+    background-color: #273148;
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+
+/* RIGHTBAR */
+
+.rightbar {
+    min-height: 100vh;
+    width: 15rem;
+    background-color: #202938;
+}
+
+.avatar-side {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}

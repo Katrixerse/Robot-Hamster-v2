@@ -1,0 +1,101 @@
+{% load static %}
+{% load bootstrap_icons %}
+
+<div class="showcase d-flex flex-column justify-content-between">
+    <div class="d-flex flex-column">
+        <div class="topbar text-white text-center d-flex justify-content-start align-items-center">
+            <span class="fs-4 fw-bold mx-3"># Home Page</span>
+            <div class="separator"></div>
+            <span class="fs-6 fw-bold mx-3 text-muted">The main page of the dashboard</span>
+        </div>
+        {% if messages %}
+        <div class="messages d-flex flex-column">
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    {% include "./mobile/nav_mobile.html" %}
+
+    {% if not guild %}
+    <div
+        class="select-guild rounded-4 d-flex align-items-center justify-content-center text-white flex-column align-self-center text-center">
+        <span>No guild selected</span>
+        {% if user.is_authenticated %}
+        <a class="btn btn-success mt-4" href="{% url 'select_guild' %}">Select</a>
+        {% else %}
+        <button type="button" class="btn btn-success mt-4" disabled>Login First</button>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="current-guild align-self-center text-white">
+        <div class="d-flex justify-content-between cur-guild-top align-items-center">
+            <div class="text-muted ms-2">Current guild</div>
+            <a class="btn btn-warning btn-sm" href="{% url 'select_guild' %}">Change</a>
+        </div>
+        <div class="p-5 d-flex flex-column align-items-center">
+            {% if not 'None' in guild.icon %}
+            <img src="{{guild.icon}}" class="cur-guild-icon rounded-circle" />
+            {% else %}
+            <img src="{% static 'main/unknown.png' %}" class="cur-guild-icon rounded-circle" />
+            {% endif %}
+            <span class="display-5">{{guild.name}}</span>
+        </div>
+    </div>
+    {% endif %}
+    <div class="bot-info align-self-center text-white rounded d-flex align-items-center justify-content-evenly">
+        <div class="d-flex flex-column align-items-center">
+            {% bs_icon 'heart-fill' size='3em' color='#F0803C' %}
+            <span>{{bot_info.guilds}} Guilds</span>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+            {% bs_icon 'person-fill' size='3em' color='#E8ECF5' %}
+            <span>{{bot_info.users}} Users</span>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+            {% bs_icon 'braces' size='3em' color='#E8ECF5' %}
+            <span>170+ Commands</span>
+        </div>
+    </div>
+    <div class="custom-chat d-flex flex-column">
+        <div class="chat d-flex">
+            <img src="{% static 'main/andrei.webp' %}" alt="x" class="avatar-chat">
+            <div class="d-flex flex-column justify-content-between mx-2 mt-2">
+                <div class="d-flex text-white">
+                    <span>Andrei_</span>
+                    <small class="text-muted mx-2">Today at 00:59 AM</small>
+                </div>
+                <span class="text-white">Welcome to the official <span class="text-orange">Robot Hamster</span>
+                    dashboard!</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="chat d-flex">
+            <img src="{% static 'main/katri.png' %}" alt="x" class="avatar-chat">
+            <div class="d-flex flex-column justify-content-between mx-2 mt-2">
+                <div class="d-flex text-white">
+                    <span>Katrixerse</span>
+                    <small class="text-muted mx-2">Today at 00:59 AM</small>
+                </div>
+                <span class="text-white">r!ping</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="chat d-flex">
+            <img src="{% static 'main/logo.webp' %}" alt="x" class="avatar-chat">
+            <div class="d-flex flex-column justify-content-between mx-2 mt-2">
+                <div class="d-flex text-white">
+                    <span>Robot Hamster</span>
+                    <small class="text-muted mx-2">Today at 1:00 AM</small>
+                </div>
+                <span class="text-white">Pong!</span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>

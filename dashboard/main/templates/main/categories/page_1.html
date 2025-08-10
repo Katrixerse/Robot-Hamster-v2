@@ -1,0 +1,65 @@
+{% load static %}
+{% load bootstrap_icons %}
+
+<div class="mx-3 d-flex flex-column">
+    <span class="fs-5 text-gray">This feature lets you disable or enable specific categories if you don't want users to use them.</span>
+</div>
+<form action="#" method="post" class="mt-5">
+    {% csrf_token %}
+    <div class="d-flex flex-column align-items-center">
+        <div class="d-flex gap-5">
+            <div class="categories-card d-flex flex-column gap-5 rounded">
+                <span class="card-icon">{% bs_icon 'exclamation-square-fill' size='2.5em' color='#E8ECF5' %}</span>
+                <div class="form-check form-switch">
+                    <span>Moderation</span>
+                    {{ form.moderation }}
+                </div>
+            </div>
+            <div class="categories-card d-flex flex-column gap-5 rounded">
+                <span class="card-icon">{% bs_icon 'chat-square-heart-fill' size='2.5em' color='#E8ECF5' %}</span>
+                <div class="form-check form-switch">
+                    <span>Fun</span>
+                    {{ form.fun }}
+                </div>
+            </div>
+            <div class="categories-card d-flex flex-column gap-5 rounded">
+                <span class="card-icon">{% bs_icon 'clipboard2-pulse-fill' size='2.5em' color='#E8ECF5' %}</span>
+                <div class="form-check form-switch">
+                    <span>Misc</span>
+                    {{ form.misc }}
+                </div>
+            </div>
+            <div class="categories-card d-flex flex-column gap-5 rounded">
+                <span class="card-icon">{% bs_icon 'easel-fill' size='2.5em' color='#E8ECF5' %}</span>
+                <div class="form-check form-switch">
+                    <span>Images</span>
+                    {{ form.image }}
+                </div>
+            </div>
+            <div class="categories-card d-flex flex-column gap-5 rounded">
+                <span class="card-icon">{% bs_icon 'envelope-fill' size='2.5em' color='#E8ECF5' %}</span>
+                <div class="form-check form-switch">
+                    <span>Info</span>
+                    {{ form.info }}
+                </div>
+            </div>
+            <div class="categories-card d-flex flex-column gap-5 rounded">
+                <span class="card-icon">{% bs_icon 'incognito' size='2.5em' color='#E8ECF5' %}</span>
+                <div class="form-check form-switch">
+                    <span>Roleplay</span>
+                    {{ form.roleplay }}
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-warning mt-5 px-5">Change</button>
+    </div>
+    {% if form.errors %}
+    {% for field in form %}
+    {% for error in field.errors %}
+    <div class="text-danger mt-1">
+        <strong>{{ error|escape }}</strong>
+    </div>
+    {% endfor %}
+    {% endfor %}
+    {% endif %}
+</form>

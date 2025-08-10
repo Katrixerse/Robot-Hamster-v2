@@ -21,7 +21,7 @@ module.exports = {
                 .query({
                     q: location,
                     units: 'metric',
-                    appid: '78a9a4c93f06a36d48978c2dfd3d7b31'
+                    appid: '<API_KEY>'
                 });
             const embed = new EmbedBuilder()
                 .setColor("#F49A32")
