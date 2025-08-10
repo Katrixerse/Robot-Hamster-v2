@@ -25,7 +25,7 @@ First, download all the files and put them in a folder.
 
 Need to create a new app at https://discordapp.com/developers/applications/me/create and then need to fill out the bots name and select its avatar then create it. Once done that find where is says Bot and click create a bot user and hit yes, do it
 
-Now you want to go back to bot go to token and click token: click to reveal this will show you the bot token now edit hammy.js, hammygamble.js, hammylevel.js where it says, client.login("your token") (it's at the bottom) with your bot token once done click save.
+Now you want to go back to bot go to token and click token: click to reveal this will show you the bot token now edit config.json where it says, botToken with your bot token once done click save.
 
 Now you have done that you will need NodeJs installed can get it from https://nodejs.org/en/ and download the latest lts version.
 
