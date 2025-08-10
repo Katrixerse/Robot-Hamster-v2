@@ -16,7 +16,7 @@ Features
 - Welcome/leave system
 - Twitch Alerts
 
-  Uses mysql as a database
+Uses mysql as a database
 
 ## Hosting
 
@@ -46,7 +46,26 @@ Packages Needed
 - imdb-api
 - randomcolor
 
-When done downloading the dependencies, run node bot.js to start the bot.
+Once done install mysql on your server
+```js
+sudo apt install mysql-server
+
+sudo systemctl start mysql.service
+
+sudo mysql_secure_installation
+```
+Than you want to run
+```js
+sudo mysql
+
+CREATE DATABASE discord_bot_db;
+
+CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+
+GRANT ALL ON discord_bot_db.* TO 'username'@'%';
+```
+
+When done downloading the dependencies and setting up mysql, run node bot.js to start the bot.
 
 If there is a problem or an error please make an issue.
 
