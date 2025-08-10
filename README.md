@@ -1,5 +1,6 @@
 Robot Hamster v2 
-## A Multi-purpose discord-bot Made By Katrixerse & Andrei12225 https://github.com/andrei12225
+## A Multi-purpose discord-bot 
+Made By Katrixerse & Andrei12225 https://github.com/andrei12225
 
 ### Im currently working on a new bot project so this one wont be updated much besides bug fixes
 
