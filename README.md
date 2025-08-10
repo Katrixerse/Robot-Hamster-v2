@@ -42,6 +42,8 @@ Packages Needed
 - twitch
 - moment
 - ms
+- mal-scraper
+- imdb-api
 - randomcolor
 
 When done downloading the dependencies, run node bot.js to start the bot.
